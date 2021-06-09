@@ -7,37 +7,32 @@ const myZoo = [
     ["Punxsutawney Phil", ["groundhog", 11]]
   ];
 
-// function zooInventory(myZoo) {
-//     document.write(myZoo[0][0] + ' the ' + myZoo[0][1][0] + ' is ' + myZoo[0][1][1]+'</br>'
-//                     +myZoo[1][0] + ' the ' + myZoo[1][1][0] + ' is ' + myZoo[1][1][1]+'</br>'
-//                     +myZoo[2][0] + ' the ' + myZoo[2][1][0] + ' is ' + myZoo[2][1][1]+'</br>');
-// }
+// myZoo.forEach((animal) => {
+//     let ime = [];
+//     let vrsta = [];
+//     let godine = [];
+//     for(let i=0;i < animal.length-1;i++){
+//         ime.push(animal[i]);
+//         // console.log(ime);
+//     }
+//     for(let i=1;i < animal.length;i++) {
+//         for(let j=0; j < animal[i].length-1;j++){
+//             vrsta.push(animal[i][j])
+//         }
+//         // console.log(vrsta);     
+//         for(let j=1; j < animal[i].length;j++){
+//             godine.push(animal[i][j])
+//         }
+//         // console.log(godine);       
+//     }
 
 
-myZoo.forEach((animal) => {
-    let ime = [];
-    let vrsta = [];
-    let godine = [];
-    for(let i=0;i < animal.length-1;i++){
-        ime.push(animal[i]);
-        // console.log(ime);
-    }
-    for(let i=1;i < animal.length;i++) {
-        for(let j=0; j < animal[i].length-1;j++){
-            vrsta.push(animal[i][j])
-        }
-        // console.log(vrsta);     
-        for(let j=1; j < animal[i].length;j++){
-            godine.push(animal[i][j])
-        }
-        // console.log(godine);       
-    }
+//         console.log(ime + ' the ' + vrsta + ' is ' + godine);
 
 
-        console.log(ime + ' the ' + vrsta + ' is ' + godine);
+// });
 
-
-});
+myZoo.forEach((animal) => console.log(`${animal[0]} the ${animal[1][0]} is ${animal[1][1]}`));
 
 
 
