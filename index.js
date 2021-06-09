@@ -7,6 +7,24 @@ const myZoo = [
     ["Punxsutawney Phil", ["groundhog", 11]]
   ];
 
+    //MAP   
+  const mapirano = brojevi.map(n => n * 2);
+
+  console.log(mapirano);
+
+    // IIFE
+  (function (num1,num2) {
+    let sum = num1 + num2;
+    console.log(sum)
+  })(3,5);
+
+    //ARROW FUNCTION
+  const x = (number) => {
+      return number * 2;
+  } 
+  console.log(x(2));
+
+//   MOJA KOMPLIKOVANIJA VERZIJA :D
 // myZoo.forEach((animal) => {
 //     let ime = [];
 //     let vrsta = [];
@@ -32,6 +50,8 @@ const myZoo = [
 
 // });
 
+
+// LAGANO ODRADJENO
 myZoo.forEach((animal) => console.log(`${animal[0]} the ${animal[1][0]} is ${animal[1][1]}`));
 
 
