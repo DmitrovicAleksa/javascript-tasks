@@ -7,6 +7,34 @@ const myZoo = [
     ["Punxsutawney Phil", ["groundhog", 11]]
   ];
 
+    //Js
+    const obj1 = {
+        firstName : "Pera",
+        lastName : "Peric",
+        age : 20
+    }
+    // ToJSON
+    const obj1Json = JSON.stringify(obj1);
+    console.log(obj1Json);
+    // JSON
+    const ob2Json = '{"firstName":"Marko","lastName":"Markovic","age":30}';
+    // ToJS
+    const obj2 = JSON.parse(ob2Json);
+    console.log(obj2);
+
+
+    // ArrayJS
+    const numbers = [1,2,3,4,5,6,7,8];
+    console.log(numbers);
+    // ArrayJSON
+    const arrJson = '[ "1","2","3","4","5","6","7","8" ]';
+    const textConverted = JSON.parse(arrJson);
+
+    textConverted.forEach((text) => console.log(text));
+    
+   
+    
+ 
     //MAP   
   const mapirano = brojevi.map(n => n * 2);
 
@@ -19,9 +47,7 @@ const myZoo = [
   })(3,5);
 
     //ARROW FUNCTION
-  const x = (number) => {
-      return number * 2;
-  } 
+  const x = (number) => number * 2;
   console.log(x(2));
 
 //   MOJA KOMPLIKOVANIJA VERZIJA :D
