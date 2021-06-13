@@ -7,41 +7,117 @@ const myZoo = [
   ["Punxsutawney Phil", ["groundhog", 11]]
 ];
 
+// ARROW FUNCTION VS ES5 FUNCTIONS
+
+// ARROW
+odds  = niz.map(v => v + 1)
+pairs = niz.map(v => ({ even: v, odd: v + 1 }))
+nums  = niz.map((v, i) => v + i)
+
+//ES5 FUNCTIONS
+odds  = evens.map(function (v) { return v + 1; });
+pairs = evens.map(function (v) { return { even: v, odd: v + 1 }; });
+nums  = evens.map(function (v, i) { return v + i; });
+
+// E6 CLASSES VS CLASS FUNCTIONS
+// functions are hoisted
+const radnik = new Radnik();
+function Radnik(){}
+user;
+
+// classes aren't hoisted
+// const menadzer = new Menadzer();
+// class Menadzer{}
+class Menadzer{};
+const menadzer = new Menadzer();
+
+// VAR VS LET AND CONST
+function startLet() {
+  for(let i =0; i < 5; i++) {
+    console.log(i);
+  }
+  // console.log(i); NE MOZE!
+}
+startLet();
+
+let color1 = 'red';
+// window.color1 (undefined)
+
+function startVar() {
+  for(var i =0; i < 5; i++) {
+    console.log(i);
+  }
+  // console.log(i); Problem sa Var 
+}
+
+var color2 = 'blue';
+// window.color2 (=blue)
+startVar();
 
 
-// PROMISES
-const promise = () => new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("Success!")
-  }, 3000)
+//PROMISES then vs async
+const promise1 = () => new Promise((resolve,reject)=>{
+  let a = false; 
+
+  if(a == true) {
+    setTimeout(() => resolve('Success!'),2000);
+  }else{
+    setTimeout(()=> reject('Error'),3000);
+  }
 })
-
-const logujResponse = async () => {
-  try {
-    const response = await promise()
+    // THEN
+// promise1.then((message) =>{
+//   console.log(message);
+// }).catch((message) => {
+//     console.log(message);
+// })
+    // ASYNC
+const logujResponse = async ()=> {
+  const response = await promise1();
+  try{
     console.log(response);
-  } catch (error) {
-    console.log(error)
+  }catch(error) {
+    console.log('Error!');
   }
 }
+
 logujResponse();
 
 
-const promise2 = () => new Promise((resolve, reject) => {
-  setTimeout(() => {
-    reject("Error!")
-  }, 3000)
-})
 
-const logujResponse2 = async () => {
-  try {
-    const response = await promise2()
-    console.log(response);
-  } catch (error) {
-    console.log(error)
-  }
-}
-logujResponse2();
+// // PROMISES 2
+// const promise = () => new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Success!")
+//   }, 2000)
+// })
+
+// const logujResponse = async () => {
+//   try {
+//     const response = await promise()
+//     console.log(response);
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+// logujResponse();
+
+
+// const promise2 = () => new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     reject("Error!")
+//   }, 2000)
+// })
+
+// const logujResponse2 = async () => {
+//   try {
+//     const response = await promise2()
+//     console.log(response);
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+// logujResponse2();
 
 
 
@@ -142,31 +218,31 @@ logujResponse2();
 //   const x = number => number * 2;
 //   console.log(x(2));
 
-// //   MOJA KOMPLIKOVANIJA VERZIJA :D
-// // myZoo.forEach((animal) => {
-// //     let ime = [];
-// //     let vrsta = [];
-// //     let godine = [];
-// //     for(let i=0;i < animal.length-1;i++){
-// //         ime.push(animal[i]);
-// //         // console.log(ime);
-// //     }
-// //     for(let i=1;i < animal.length;i++) {
-// //         for(let j=0; j < animal[i].length-1;j++){
-// //             vrsta.push(animal[i][j])
-// //         }
-// //         // console.log(vrsta);     
-// //         for(let j=1; j < animal[i].length;j++){
-// //             godine.push(animal[i][j])
-// //         }
-// //         // console.log(godine);       
-// //     }
+//   MOJA KOMPLIKOVANIJA VERZIJA :D
+// myZoo.forEach((animal) => {
+//     let ime = [];
+//     let vrsta = [];
+//     let godine = [];
+//     for(let i=0;i < animal.length-1;i++){
+//         ime.push(animal[i]);
+//         // console.log(ime);
+//     }
+//     for(let i=1;i < animal.length;i++) {
+//         for(let j=0; j < animal[i].length-1;j++){
+//             vrsta.push(animal[i][j])
+//         }
+//         // console.log(vrsta);     
+//         for(let j=1; j < animal[i].length;j++){
+//             godine.push(animal[i][j])
+//         }
+//         // console.log(godine);       
+//     }
 
 
-// //         console.log(ime + ' the ' + vrsta + ' is ' + godine);
+//         console.log(ime + ' the ' + vrsta + ' is ' + godine);
 
 
-// // });
+// });
 
 
 // // LAGANO ODRADJENO
@@ -228,38 +304,38 @@ logujResponse2();
 
 
 
-// // //Prvi primer sa var
-// // function nekaVarFunkcija() {
-// //     for(var i=0;i < 10;i++){
-// //         var broj = i;
-// //     }
-// //     console.log(broj);
-// // }
-// // nekaVarFunkcija();// = 9
+// //Prvi primer sa var
+// function nekaVarFunkcija() {
+//     for(var i=0;i < 10;i++){
+//         var broj = i;
+//     }
+//     console.log(broj);
+// }
+// nekaVarFunkcija();// = 9
 
-// // //Drugi primer sa let
-// // function nekaLetFunkcija() {
-// //     for(let i=0;i<10;i++){
-// //         let broj = i;
-// //     }
-// //     console.log(broj);
-// // }
+// //Drugi primer sa let
+// function nekaLetFunkcija() {
+//     for(let i=0;i<10;i++){
+//         let broj = i;
+//     }
+//     console.log(broj);
+// }
 
-// // nekaLetFunkcija(); // =Uncaught ReferenceError: broj is not defined at nekaLetFunkcija 
+// nekaLetFunkcija(); // =Uncaught ReferenceError: broj is not defined at nekaLetFunkcija 
 
-// // Treci primer sa globalnom
-// // var globalna = 10;
+// Treci primer sa globalnom
+// var globalna = 10;
 
-// // function funkcijaSaGlobalnom() {
-// //     console.log(globalna);
-// // }
+// function funkcijaSaGlobalnom() {
+//     console.log(globalna);
+// }
 
-// // funkcijaSaGlobalnom(); // =10
+// funkcijaSaGlobalnom(); // =10
 
-// //Cetvrti primer sa pozivanjem izvan funkcije
+//Cetvrti primer sa pozivanjem izvan funkcije
 
-// // function pozivanjeIzvan() {
-// //     var a = 5;
-// // }
+// function pozivanjeIzvan() {
+//     var a = 5;
+// }
 
-// // console.log(a); //Uncaught ReferenceError: a is not defined at index.js:35
+// console.log(a); //Uncaught ReferenceError: a is not defined at index.js:35
