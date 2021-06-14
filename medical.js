@@ -146,17 +146,23 @@ class CholesterolExamination extends Examination {
 
 
 const doctor = new Doctor('Milan', 'Milanic', 'Lekar opste prakse');
+const today = new Date();
+const dateDoctor = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' ' +today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+console.log('[' +dateDoctor + '] Kreiran doktor ' + doctor.name);
+
 const patient = new Patient('Dragan', 'Dragic', '123', doctor);
 
+const datePatient = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' ' +today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+console.log('[' +datePatient + '] Kreiran pacijent ' + patient.name);
 doctor.setPatient(patient);
 patient
 
-// doctor.patients.forEach(patient => {
-//     console.log('Pacijenti doktora ' + doctor.name + ': ' + patient.name);
-// });
+
 
 // PACIJENT BIRA DOKTORA
-console.log('Pacijent ' + patient.name + ' izabrao je za doktora ' + doctor.name);
+console.log('[' +datePatient + ']Pacijent ' + patient.name + ' izabrao je za doktora ' + doctor.name);
 
 // KREIRANI PREGLEDI
 const bloodPresure = new BloodPressureExamination(patient, '20.03.2022. 19:30');
@@ -169,11 +175,11 @@ console.log('Doktor ' + doctor.name + ' je zakazao pacijentu ' + patient.name + 
 // REZULTATI
 sugarLevel.vrednost.level = 5.5;
 sugarLevel.vrednost.lastLunchTime = '22:15';
-console.log('Pacijent ' + patient.name + " rezultati pregleda- vrednost: " +  sugarLevel.vrednost.level + '/ vreme poslednjeg obroka: ' + sugarLevel.vrednost.lastLunchTime);
+console.log('Pacijent ' + patient.name + " rezultati pregleda- vrednost: " +  sugarLevel.vrednost.level + '/ vreme poslednjeg obroka: [' + sugarLevel.vrednost.lastLunchTime + ']');
 
 // ZAKAZIVANJE DRUGOG PREGLEDA
 doctor.setScheduling(bloodPresure, patient);
-console.log('Doktor ' + doctor.name + ' je zakazao pacijentu ' + patient.name + ' pregled ' + patient.labaratoryExaminations[1].type + ' datuma: ' + patient.labaratoryExaminations[1].dateString);
+console.log('Doktor ' + doctor.name + ' je zakazao pacijentu ' + patient.name + ' pregled ' + patient.labaratoryExaminations[1].type + ' datuma: [' + patient.labaratoryExaminations[1].dateString + ']');
 
 // REZULTATI DRUGOG PREGLEDA
 bloodPresure.vrednost.lowerValue = 80;
