@@ -1,0 +1,6 @@
+
+[Tue Jun 15 2021 17:17:51 GMT+0200 (Central European Summer Time)] Kreiran doktor Milan
+[Tue Jun 15 2021 17:17:51 GMT+0200 (Central European Summer Time)] Kreiran pacijent Dragan
+[Tue Jun 15 2021 17:17:51 GMT+0200 (Central European Summer Time)] Pacijent Dragan bira doktora Milan
+[Tue Jun 15 2021 17:17:51 GMT+0200 (Central European Summer Time)] Pacijent Dragan je obavio pregled za blood_presure,rezultati su" - {"lowerValue":120,"upperValue":80,"pulse":76}
+[Tue Jun 15 2021 17:17:51 GMT+0200 (Central European Summer Time)] Pacijent Dragan je obavio pregled za sugar_level,rezultati su" - {"level":5.5,"lastLunchTime":"22:30"}
