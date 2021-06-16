@@ -1,4 +1,5 @@
 import { Person } from "./person.mjs";
+import {makeLog} from "./writefile.mjs";
 
 export class Patient extends Person {
     constructor(name, lastname, jmbg) {
@@ -7,12 +8,13 @@ export class Patient extends Person {
         this.doctor = null;
         this.labaratoryExaminations = [];
         const d = new Date();
+        makeLog({action : `Kreiran pacijent ${this.name}`});
         // console.log(`${d}\nKreiran je pacijent ${this.name}`);
     }
 
     setDoctor(doctor) {
         this.doctor = doctor;
-        // console.log(`${this.name} izabrao je za svog doktora ${this.doctor.name}`);
+        makeLog({action : `Pacijent ${this.name} bira doktora ${this.doctor.name}`});
     }
 
     setExamination(labaratoryExamination) {
@@ -21,6 +23,8 @@ export class Patient extends Person {
 
     izvrsiPregled(labaratoryExamination) {
         const founded =  this.labaratoryExaminations.find((element) => element.type  === labaratoryExamination.type)
+
+        makeLog({action:`Pacijent ${this.name} je obavio pregled za ${labaratoryExamination.type},rezultati su" - ${JSON.stringify(labaratoryExamination.vrednost)}`})
 
         console.log(`Pacijent ${this.name} obavlja labaratorijski pregled ${founded.type}`);
 

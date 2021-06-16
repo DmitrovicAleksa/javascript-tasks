@@ -1,4 +1,5 @@
 import { Person } from "./person.mjs";
+import {makeLog} from "./writefile.mjs";
 
 export class Doctor extends Person {
     constructor(name, lastname, specialty) {
@@ -6,6 +7,7 @@ export class Doctor extends Person {
         this.specialty = specialty;
         this.patients = [];
         const d = new Date();
+        makeLog({action : `Kreiran pacijent ${this.name}`});
         // console.log(`[${d}] \nKreiran je doktor ${this.name}`);
     }
 
